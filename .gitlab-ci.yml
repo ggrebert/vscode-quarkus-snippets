@@ -1,0 +1,22 @@
+stages:
+  - build
+  - deploy
+
+image: node
+
+before_script:
+  - npm install -g vsce
+
+build:
+  stage: build
+  script:
+    - vsce package --baseContentUrl "${CI_PROJECT_URL}/raw/master/"
+  artifacts:
+    untracked: true
+
+deploy:
+  stage: deploy
+  script:
+    - vsce publish -p $AZURE_TOKEN
+  only:
+    - master
