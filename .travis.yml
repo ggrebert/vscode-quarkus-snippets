@@ -1,0 +1,26 @@
+sudo: false
+
+stages:
+  - name: build
+  - name: deploy
+
+language: node_js
+node_js:
+  - "node"
+
+jobs:
+  include:
+    - stage: build
+      script:
+        - npm install -g vsce
+        - vsce package
+
+    - stage: deploy
+      script:
+        - npm install -g vsce
+        - |
+          if [ ! -z "$AZURE_TOKEN" ];
+          then
+            npm install -g vsce;
+            vsce publish -p $AZURE_TOKEN;
+          fi
