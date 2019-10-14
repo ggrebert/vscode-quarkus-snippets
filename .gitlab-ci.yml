@@ -17,6 +17,6 @@ build:
 deploy:
   stage: deploy
   script:
-    - vsce publish -p $AZURE_TOKEN
+    - vsce publish --baseContentUrl "${CI_PROJECT_URL}/raw/master/" -p $AZURE_TOKEN
   only:
     - master
