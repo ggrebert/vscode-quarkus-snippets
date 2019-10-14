@@ -3,15 +3,15 @@
     "displayName": "Quarkus snippets",
     "description": "Quarkus snippets",
     "license": "Apache-2.0",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "icon": "images/logo.png",
     "publisher": "ggrebert",
     "author": "Geoffrey GREBERT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ggrebert/vscode-quarkus-snippets"
+        "url": "https://gitlab.com/geoffrey-grebert/vscode-quarkus-snippets"
     },
-    "bugs": "https://github.com/ggrebert/vscode-quarkus-snippets/issues",
+    "bugs": "https://gitlab.com/geoffrey-grebert/vscode-quarkus-snippets/issues",
     "galleryBanner": {
         "color": "#d8ebff",
         "theme": "light"
