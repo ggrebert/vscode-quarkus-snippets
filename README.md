@@ -8,6 +8,11 @@ Type part of a snippet, press `enter`, and the snippet unfolds.
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
+### Commands
+
+* `Quarkus: Check for update`
+  Read your `pom.xml` file and compare your *Quarkus* version with the latest release.
+
 ### JAVA snippets
 
 | snippet | Purpose |

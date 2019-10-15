@@ -166,7 +166,7 @@
             "",
             "\t$0",
             "",
-            "\tpublic static Post findByUUID(UUID uuid) {",
+            "\tpublic static ${TM_FILENAME_BASE} findByUUID(UUID uuid) {",
             "\t\treturn find(\"uuid\", uuid).firstResult();",
             "\t}",
             "}",
