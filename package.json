@@ -3,7 +3,7 @@
     "displayName": "Quarkus snippets",
     "description": "Quarkus snippets",
     "license": "Apache-2.0",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "icon": "images/logo.png",
     "publisher": "ggrebert",
     "author": "Geoffrey GREBERT",
@@ -27,7 +27,17 @@
         "quarkus",
         "maven"
     ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onCommand:extension.checkQuarkusUpdate"
+    ],
     "contributes": {
+        "commands": [
+            {
+                "command": "extension.checkQuarkusUpdate",
+                "title": "Quarkus: Check for update"
+            }
+        ],
         "snippets": [
             {
                 "language": "java",
@@ -37,5 +47,31 @@
     },
     "extensionDependencies": [
         "redhat.java"
-    ]
+    ],
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js",
+        "tslint": "tslint -c tslint.json 'src/**/*.ts'"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^10.12.21",
+        "@types/traverse": "^0.6.32",
+        "@types/vscode": "^1.39.0",
+        "@types/xml2js": "^0.4.5",
+        "glob": "^7.1.4",
+        "mocha": "^6.1.4",
+        "tslint": "^5.20.0",
+        "typescript": "^3.3.1",
+        "vscode-test": "^1.2.0"
+    },
+    "dependencies": {
+        "traverse": "^0.6.6",
+        "typed-rest-client": "^1.5.0",
+        "xml2js": "^0.4.22"
+    }
 }
