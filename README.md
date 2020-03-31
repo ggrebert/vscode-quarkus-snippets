@@ -13,15 +13,26 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * `Quarkus: Check for update`
   Read your `pom.xml` file and compare your *Quarkus* version with the latest release.
 
+* `Quarkus: Add devcontainer configuration`
+  Configure the workspace to run in `devcontainer` mode.
+  This command require the [Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
 ### JAVA snippets
 
 | snippet | Purpose |
 | ------- | ------- |
 | q-resource | Create new Quarkus REST resource class |
 | q-panache-entity | Create a Panache entity |
-| q-uuid-path-parameter | Add UUID to path parameters |
 | q-path | Create new path entrypoint |
-| uuid-regex-pattern | Create constant for UUID pattern |
+
+### YAML snippets
+
+| snippet | Purpose |
+| ------- | ------- |
+| postgresql-service | Create new [PostgreSQL](https://hub.docker.com/_/postgres) service for docker-compose |
+| mysql-service | Create a [MySQL](https://hub.docker.com/_/mysql)/[MariaDB](https://hub.docker.com/_/mariadb) service for docker-compose |
+| keycloak-service | Create a [keycloak](https://hub.docker.com/r/jboss/keycloak) service for docker-compose |
+| jaeger-service | Create a [Jaeger](https://www.jaegertracing.io/) service for docker-compose |
 
 ## Requirements
 
