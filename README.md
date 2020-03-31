@@ -19,9 +19,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 | ------- | ------- |
 | q-resource | Create new Quarkus REST resource class |
 | q-panache-entity | Create a Panache entity |
-| q-uuid-path-parameter | Add UUID to path parameters |
 | q-path | Create new path entrypoint |
-| uuid-regex-pattern | Create constant for UUID pattern |
 
 ## Requirements
 
