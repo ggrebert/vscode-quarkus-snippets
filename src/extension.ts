@@ -2,7 +2,8 @@ import * as fs from 'fs';
 import * as rm from 'typed-rest-client/RestClient';
 import * as traverse from 'traverse';
 import * as vscode from 'vscode';
-import * as xml2js from "xml2js";
+import * as xml2js from 'xml2js';
+import * as ncp from 'ncp';
 
 interface GithubRelease {
     url: string;
@@ -82,7 +83,27 @@ export function activate(context: vscode.ExtensionContext) {
         });
     });
 
-    context.subscriptions.push(disposable);
+    let devcontainer = vscode.commands.registerCommand('extension.initDevContainer', () => {
+        if (!vscode.workspace.workspaceFolders) {
+            console.error('Not in a workspace');
+            return;
+        }
+
+        const workspaceFolder = vscode.workspace.workspaceFolders[0].uri.path;
+
+        if (fs.existsSync(workspaceFolder + '/.devcontainer')) {
+            vscode.window.showErrorMessage('Folder already contains a dev container configuration file.');
+            return;
+        }
+
+        ncp(context.extensionPath + '/src/assets/devcontainer', workspaceFolder + '/.devcontainer', function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+    });
+
+    context.subscriptions.push(disposable, devcontainer);
 }
 
 // this method is called when your extension is deactivated
