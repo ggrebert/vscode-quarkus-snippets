@@ -12,15 +12,18 @@ build:
   stage: build
   script:
     - npm run tslint
+    - npm run compile
     - npm run vscode:prepublish
     - vsce package --baseContentUrl "${CI_PROJECT_URL}/raw/master/"
   artifacts:
     paths:
       - "*.vsix"
+      - assets
 
 deploy:
   stage: deploy
   script:
+    - npm run vscode:prepublish
     - vsce publish --baseContentUrl "${CI_PROJECT_URL}/raw/master/" -p $AZURE_TOKEN
   only:
     - production
