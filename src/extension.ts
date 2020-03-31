@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        ncp(context.extensionPath + '/src/assets/devcontainer', workspaceFolder + '/.devcontainer', function (err) {
+        ncp(context.extensionPath + '/assets/devcontainer', workspaceFolder + '/.devcontainer', function (err) {
             if (err) {
                 return console.error(err);
             }

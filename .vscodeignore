@@ -1,4 +1,10 @@
 .vscode/**
 .vscode-test/**
 .gitignore
-vsc-extension-quickstart.md
+node_modules
+out/
+src/
+tsconfig.json
+tslint.json
+.gitlab-ci.yml
+webpack.config.js
