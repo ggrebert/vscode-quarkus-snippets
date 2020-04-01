@@ -11,9 +11,11 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 ### Commands
 
 * `Quarkus: Check for update`
+
   Read your `pom.xml` file and compare your *Quarkus* version with the latest release.
 
 * `Quarkus: Add devcontainer configuration`
+
   Configure the workspace to run in `devcontainer` mode.
   This command require the [Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
@@ -24,6 +26,17 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 | q-resource | Create new Quarkus REST resource class |
 | q-panache-entity | Create a Panache entity |
 | q-path | Create new path entrypoint |
+
+### Quakus properties snippets
+
+| snippet | Purpose |
+| ------- | ------- |
+| datasource-postgresql | Add datasource to your configuration for [Postgresql](https://hub.docker.com/_/postgres) |
+| datasource-mysql      | Add datasource to your configuration for [MySQL](https://hub.docker.com/_/mysql) |
+| datasource-mariadb    | Add datasource to your configuration for [MariaDB](https://hub.docker.com/_/mariadb) |
+| datasource-mssql      | Add datasource to your configuration for [MySQL](https://hub.docker.com/_/microsoft-mssql-server) |
+| datasource-h2         | Add datasource to your configuration for [H2](https://www.h2database.com/) |
+| datasource-derby      | Add datasource to your configuration for [Apache Derby](http://db.apache.org/derby/) |
 
 ### YAML snippets
 
