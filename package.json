@@ -3,7 +3,7 @@
     "displayName": "Quarkus snippets",
     "description": "Quarkus snippets",
     "license": "Apache-2.0",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "icon": "images/logo.png",
     "publisher": "ggrebert",
     "author": "Geoffrey GREBERT",
@@ -25,7 +25,12 @@
     "keywords": [
         "java",
         "quarkus",
-        "maven"
+        "maven",
+        "Quarkus properties",
+        "quarkus-properties",
+        "docker-compose",
+        "containers",
+        "dev container"
     ],
     "main": "./dist/extension.js",
     "activationEvents": [
@@ -51,6 +56,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/yaml.json"
+            },
+            {
+                "language": "quarkus-properties",
+                "path": "./snippets/quarkus-properties.json"
             }
         ],
         "menus": {
