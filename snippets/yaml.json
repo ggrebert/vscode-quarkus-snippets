@@ -89,5 +89,73 @@
             "\t\t- ${3:16686}:16686",
             ""
         ]
-    }
+    },
+    "DockerCompose - Elasticsearch": {
+        "prefix": [
+            "elasticserch-service"
+        ],
+        "description": "Create a Elasticsearch service",
+        "body": [
+            "${1:elasticsearch}:",
+            "\timage: docker.elastic.co/elasticsearch/elasticsearch${2:-oss}:${3:7.6.2}",
+            "\tenvironment:",
+            "\t\t- discovery.type=single-node",
+            "\t\t- \"ES_JAVA_OPTS=-Xms${4:512m} -Xmx$4\"",
+            "\tports:",
+            "\t\t- ${5:9200}:9200",
+            "\thealthcheck:",
+            "\t\ttest: ['CMD-SHELL', 'curl -f http://127.0.0.1:9200/_cluster/health?wait_for_status=yellow']",
+            "\t\tinterval: 10s",
+            "\t\ttimeout: 5s",
+            "\t\tretries: 10",
+            ""
+        ]
+    },
+    "DockerCompose - Kibana": {
+        "prefix": [
+            "kibana-service"
+        ],
+        "description": "Create a Kibana service",
+        "body": [
+            "${1:kibana}:",
+            "\timage: docker.elastic.co/kibana/kibana${2:-oss}:${3:7.6.2}",
+            "\tenvironment:",
+            "\t\tELASTICSEARCH_HOSTS: ${4:http://elasticsearch:9200}",
+            "\tdepends_on:",
+            "\t\t${5:elasticsearch}:",
+            "\t\t\tcondition: service_healthy",
+            "\tports:",
+            "\t\t- ${6:5601}:5601",
+            "\thealthcheck:",
+            "\t\ttest: ['CMD-SHELL', 'curl -f http://127.0.0.1:5601/api/status']",
+            "\t\tinterval: 10s",
+            "\t\ttimeout: 5s",
+            "\t\tretries: 5",
+            ""
+        ]
+    },
+    "DockerCompose - Logstash": {
+        "prefix": [
+            "logstash-service"
+        ],
+        "description": "Create a Logstash service",
+        "body": [
+            "${1:logstash}:",
+            "\timage: docker.elastic.co/logstash/logstash${2:-oss}:${3:7.6.2}",
+            "\tvolumes:",
+            "\t\t- ${4:./logstash.yml}:/usr/share/logstash/config/logstash.yml:ro",
+            "\t\t- ${5:./pipeline/}:/usr/share/logstash/pipeline/:ro",
+            "\tports:",
+            "\t\t- ${6:5000:5000}",
+            "\tdepends_on:",
+            "\t\t${7:elasticsearch}:",
+            "\t\t\tcondition: service_healthy",
+            "\thealthcheck:",
+            "\t\ttest: ['CMD-SHELL', 'curl -f http://127.0.0.1:9600']",
+            "\t\tinterval: 10s",
+            "\t\ttimeout: 5s",
+            "\t\tretries: 5",
+            ""
+        ]
+    },
 }
