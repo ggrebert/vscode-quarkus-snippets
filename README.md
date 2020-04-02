@@ -46,6 +46,9 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 | mysql-service | Create a [MySQL](https://hub.docker.com/_/mysql)/[MariaDB](https://hub.docker.com/_/mariadb) service for docker-compose |
 | keycloak-service | Create a [keycloak](https://hub.docker.com/r/jboss/keycloak) service for docker-compose |
 | jaeger-service | Create a [Jaeger](https://www.jaegertracing.io/) service for docker-compose |
+| elasticsearch-service | Create a [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) service for docker-compose |
+| kibana-service | Create a [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html) service for docker-compose |
+| logstash-service | Create a [Logsatsh](https://www.elastic.co/guide/en/logstash/current/index.html) service for docker-compose |
 
 ## Requirements
 
